@@ -7,7 +7,7 @@ Repo for all Odin Project related material.
 - Introduction ✓
 - Prerequisites ✓
 - Git Basics ✓
-- HTML Foundations
+- HTML Foundations ✓
 - CSS Foundations
 - Flexbox
 - JavaScript Basics
