@@ -188,3 +188,19 @@ button.action {
     font-weight: bold;
     margin-top: 8px
 }
+
+/* FOOTER */
+
+.footer {
+    background-color: #1F2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+a.footer-author {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
