@@ -81,3 +81,9 @@ button {
     gap: 16px;
 }
 
+.header-links {
+    display: flex;
+    gap: 16px;
+    
+}
+
