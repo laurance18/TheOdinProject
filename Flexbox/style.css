@@ -49,6 +49,8 @@ a.link {
     align-items: center;
     color: #F9FAF8;
     background-color: rgb(148, 145, 145);
+    flex: 1;
+    max-width: 600px;
 }
 
 button {
@@ -65,16 +67,17 @@ button {
 
 .header {
     display: flex;
-    justify-content: space-around;
-    padding: 16px;
+    justify-content: space-between;
+    padding: 16px 64px 16px 64px;
     padding-bottom: 64px;
     gap:32px;
 }
 
 .section-one {
     display: flex;
-    justify-content: space-around;
-    padding: 48px;
+    justify-content: space-between;
+    padding: 16px 64px 16px 64px;
     padding-bottom: 64px;
+    gap: 16px;
 }
 
