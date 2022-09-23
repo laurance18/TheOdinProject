@@ -9,7 +9,7 @@ Repo for all Odin Project related material.
 - Git Basics ✓
 - HTML Foundations ✓
 - CSS Foundations ✓
-- Flexbox
+- Flexbox ✓
 - JavaScript Basics
 - The Back End
 - Conclusion
