@@ -1,3 +1,5 @@
+/* GENERAL DECLARATIONS */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
@@ -9,7 +11,7 @@ body {
     font-family: Roboto, sans-serif;;
 }
 
-/* COLOR / FONT / PROPERTIES */
+/* HEADER & SECTION-ONE */
 
 a.link {
     text-decoration: none;
@@ -64,8 +66,6 @@ button {
     margin-top: 8px
 }
 
-/* FLEX */
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -87,3 +87,37 @@ button {
     gap: 16px;
 }
 
+/* SECTION TWO */
+
+.section-two {
+    text-align: center;
+}
+
+.img-holder {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    border: 3px solid royalblue;
+}
+
+.text-holder {
+    padding-top: 5px
+}
+
+.holder {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding-bottom: 64px;
+}
+
+.item-cont {
+    max-width: 150px;
+}
+
+.information-title {
+    color: #1F2937;
+    font-weight: bolder;
+    font-size: 36px;
+    padding: 32px
+}
