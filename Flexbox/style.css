@@ -56,7 +56,7 @@ a.link {
     text-align: center;
 }
 
-button {
+button.main {
     background: #3882F6;
     padding: 8px 32px 8px 32px;
     border-radius: 8px;
@@ -147,4 +147,44 @@ button {
     text-align: right;
     font-size: 22px;
     font-weight: bold;
+}
+
+/* SECTION FOUR */
+
+.section-four {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-cont {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 64px 32px 64px;
+    background-color: #3882F6;
+    margin: 64px;
+    flex: 1;
+    max-width: 1000px;
+    border-radius: 8px;
+    border: 1px solid #3882F6;
+}
+
+.action-title {
+    color: #E5E7EB;
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.action-sec {
+    color: #dddfe3;
+}
+
+button.action {
+    background: #3882F6;
+    padding: 8px 32px 8px 32px;
+    border-radius: 8px;
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    margin-top: 8px
 }
