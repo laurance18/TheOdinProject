@@ -27,25 +27,66 @@ body {
 /* MATCH SCREEN */
 
 img {
-    max-width: 100px;
+    max-width: 80px;
 }
 
 .matchscreen {
     display: flex;
-    justify-content: center;
-    gap: 128px;
+    flex: 1;
+    align-items: center;
+    gap: 64px;
     padding: 64px;
     background-color: #50555d;
+    flex-flow: column nowrap;
 }
 
-.player-cont,
-.comp-cont {
+.result {
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
 }
 
-.player-score,
-.comp-score {
-    padding-top: 18px;
-    color: black;
-    font-size: 18px;
+.score-cont {
+    display: flex;
+    flex-flow: row nowrap;
+    /* gap: 48px; */
+}
+
+.pscore-cont,
+.compscore-cont {
+    display: flex;
+    flex-shrink: 0;
+    padding: 16px;
+}
+
+.pscore,
+.compscore {
+    border: 2px #E5E7EB solid;
+    border-radius: 4px;
+    background-color: #E5E7EB;
+    width: 100px;
+    margin: 0px 12px 0px 12px;
+    text-align: center;
+}
+
+/* SELECTION */
+
+.selectionscreen {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 64px;
+    padding-right: 24px;
+    background-color: #50555d;
+    
+}
+
+.choice {
+    display: flex;;
+    justify-content: center;
+    align-items: center;
+    border: 2px #E5E7EB solid;
+    width: 80px;
+    height: 25px;
 }
