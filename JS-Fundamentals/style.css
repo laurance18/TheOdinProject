@@ -69,6 +69,10 @@ img {
     text-align: center;
 }
 
+.current {
+    position: relative;
+}
+
 /* SELECTION */
 
 .selectionscreen {
@@ -87,6 +91,7 @@ img {
     justify-content: center;
     align-items: center;
     border: 2px #E5E7EB solid;
+    border-radius: 4px;
     width: 80px;
     height: 25px;
 }
