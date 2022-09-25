@@ -8,18 +8,16 @@
         <link rel="stylesheet" href=".\style.css">
     </head>
     <body>
-        <script src="script.js"></script>
-
         <div class="title">ROCK - PAPER - SCISSORS</div>
         <div class="matchscreen">
-            <div class="result">Match hasn't concluded yet!</div>
+            <div class="result" id="result">Match hasn't started yet!</div>
             <div class="score-cont">
                 <div class="pscore-cont">
                     <div class="pscoretext">Player Score:</div>
-                    <div class="pscore">0</div>
+                    <div class="pscore" id="pscore">0</div>
                 </div>
                 <div class="compscore-cont">
-                    <div class="compscore">0</div>
+                    <div class="compscore" id="cscore">0</div>
                     <div class="compscoretext">Computer Score:</div>
                 </div>
             </div>
@@ -29,5 +27,6 @@
             <button class="choice" onclick="roundStart('paper');">Paper</button>
             <button class="choice" onclick="roundStart('scissors');">Scissors</button>
         </div>
+        <script src=".\script.js" defer></script>
     </body>
 </html>
