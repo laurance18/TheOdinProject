@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock-Paper-Scissors</title>
+        <link rel="stylesheet" href=".\style.css">
+    </head>
+    <body>
+        <div class="title">ROCK - PAPER - SCISSORS</div>
+        <div class="matchscreen">
+            <div class="result" id="result">Match hasn't started yet!</div>
+            <div class="score-cont">
+                <div class="pscore-cont">
+                    <div class="pscoretext">Player Score:</div>
+                    <div class="pscore" id="pscore">0</div>
+                </div>
+                <div class="compscore-cont">
+                    <div class="compscore" id="cscore">0</div>
+                    <div class="compscoretext">Computer Score:</div>
+                </div>
+            </div>
+        </div>
+        <div class="selectionscreen">
+            <button class="choice" onclick="roundStart('rock');">Rock</button>
+            <button class="choice" onclick="roundStart('paper');">Paper</button>
+            <button class="choice" onclick="roundStart('scissors');">Scissors</button>
+        </div>
+        <script src=".\script.js" defer></script>
+    </body>
+</html>
