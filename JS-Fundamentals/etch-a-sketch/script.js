@@ -10,4 +10,4 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(8, 8);
+makeRows(16, 16); // MAKE THIS REACTIVE WITH A SLIDER!!

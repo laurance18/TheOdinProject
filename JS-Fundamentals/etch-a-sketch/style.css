@@ -7,16 +7,20 @@
     margin: 0;
 }
 
-body {
-    font-family: Roboto, sans-serif;
-}
-
-/* GRID */
-
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
-  }
+    --main-color: #50555d;
+    --footer-color: #1F2937;
+    --white-color: #ddd;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: var(--main-color);
+}
+
+/* GRID */
   
 #maingrid {
     display: grid;
@@ -32,4 +36,19 @@ body {
     border: 1px solid #ddd;
     text-align: center;
     aspect-ratio: 1/1; /* THIS IS MAGIC! */
+}
+
+/* LAYOUT */
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 48px;
+    padding: 16px;
 }
