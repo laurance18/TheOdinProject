@@ -5,9 +5,9 @@ function makeRows(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
-    // cell.innerText = (c + 1);
+    cell.style.padding = `${192/rows}px`;
     container.appendChild(cell).className = "grid-item";
   };
 };
 
-makeRows(16, 16); // MAKE THIS REACTIVE WITH A SLIDER!!
+makeRows(32, 32); // MAKE THIS REACTIVE WITH A SLIDER!!

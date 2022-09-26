@@ -13,6 +13,7 @@
     --main-color: #50555d;
     --footer-color: #1F2937;
     --white-color: #ddd;
+    --max: 192px;
 }
 
 body {
@@ -24,15 +25,11 @@ body {
   
 #maingrid {
     display: grid;
-    /* grid-gap: 1em; */
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    max-width: 480px;
-    max-height: 480px;
 }
   
 .grid-item {
-    padding: 1em;
     border: 1px solid #ddd;
     text-align: center;
     aspect-ratio: 1/1; /* THIS IS MAGIC! */
@@ -48,6 +45,7 @@ body {
 }
 
 .title {
+    text-align: center;
     font-weight: bold;
     font-size: 48px;
     padding: 16px;
