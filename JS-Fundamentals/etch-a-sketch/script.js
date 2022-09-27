@@ -9,11 +9,12 @@ function makeRows(rows, cols) {
 		cell.style.backgroundColor = '#50555d'
 
     	cell.addEventListener('mouseover', function () {
-			randoms = [Math.floor(Math.random()*365)+1, Math.floor(Math.random()*365)+1, Math.floor(Math.random()*365)+1]
-			cell.style.backgroundColor = `rgb(${randoms[0]}, ${randoms[1]}, ${randoms[2]})`;
+			if(cell.style.backgroundColor == 'rgb(80, 85, 93)'){
+				randoms = [Math.floor(Math.random()*365)+1, Math.floor(Math.random()*365)+1, Math.floor(Math.random()*365)+1]
+				cell.style.backgroundColor = `rgb(${randoms[0]}, ${randoms[1]}, ${randoms[2]})`;
+			};
     	});
-
-    container.appendChild(cell).className = "grid-item";
+    	container.appendChild(cell).className = "grid-item";
   	};
 };
 
