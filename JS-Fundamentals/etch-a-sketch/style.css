@@ -41,11 +41,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 32px;
 }
 
 .title {
+    color: var(--white-color);
     text-align: center;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 44px;
     padding: 16px;
+    background-color: var(--footer-color);
 }
