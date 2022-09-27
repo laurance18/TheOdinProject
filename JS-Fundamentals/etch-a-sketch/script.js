@@ -6,6 +6,11 @@ function makeRows(rows, cols) {
   for (c = 0; c < (rows * cols); c++) {
     let cell = document.createElement("div");
     cell.style.padding = `${192/rows}px`;
+
+    cell.addEventListener('mouseover', function () {
+      cell.style.backgroundColor = "black";
+    });
+
     container.appendChild(cell).className = "grid-item";
   };
 };
