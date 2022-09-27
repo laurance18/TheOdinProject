@@ -10,13 +10,16 @@ function makeRows(rows, cols) {
   };
 };
 
+makeRows(16, 16); // INITAL GRID
+
 let slider = document.getElementById('slider');
 let output = document.getElementById('slider-value');
 output.textContent = `${slider.value}x${slider.value}`;
 
 slider.oninput = function () {
   output.textContent = `${this.value}x${this.value}`;
-  // makeRows(this.value,this.value)
+  while(container.firstChild) {
+    container.removeChild(container.firstChild); // REMOVE OLD GRID
+  }
+  makeRows(this.value,this.value)
 };
-
-makeRows(16, 16); 
