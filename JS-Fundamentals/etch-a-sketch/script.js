@@ -10,4 +10,13 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(32, 32); // MAKE THIS REACTIVE WITH A SLIDER!!
+let slider = document.getElementById('slider');
+let output = document.getElementById('slider-value');
+output.textContent = `${slider.value}x${slider.value}`;
+
+slider.oninput = function () {
+  output.textContent = `${this.value}x${this.value}`;
+  // makeRows(this.value,this.value)
+};
+
+makeRows(16, 16); 
