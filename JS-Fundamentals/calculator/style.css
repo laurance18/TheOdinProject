@@ -10,3 +10,11 @@
 body {
     font-family: Roboto, sans-serif;
 }
+
+:root {
+    --utility-color: rgb(30,144,255);
+    --operations-color: rgb(255,143,31);
+    --numbers-color: rgb(33,124,126);
+}
+
+/* DISPLAY SCREEN */
