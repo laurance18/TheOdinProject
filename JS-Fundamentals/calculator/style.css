@@ -19,22 +19,41 @@ body {
 
 /* DISPLAY SCREEN */
 
+#container {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 500px;
+    align-items: center;   
+    gap: 20px; 
+    border: 2px black solid;
+    border-radius: 15px;
+}
 
+.utility-row {
+    display: flex;
+    gap: 20px;
+    width: 460px;
+}
+
+.utility {
+    text-align: center;
+    min-width: 220px;
+}
 
 /* BUTTONS */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-gap: 20px;
 }
 
 button.utility {
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 75px;
 }
 
 button.operator, button.number, button.dot {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
 }
