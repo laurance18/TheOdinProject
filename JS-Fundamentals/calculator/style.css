@@ -27,6 +27,8 @@ body {
     gap: 20px; 
     border: 2px black solid;
     border-radius: 15px;
+    margin: auto;
+    margin-top: 32px;
 }
 
 .utility-row {
