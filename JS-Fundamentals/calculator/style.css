@@ -9,12 +9,15 @@
 
 body {
     font-family: Roboto, sans-serif;
+    background-color: var(--background-color);
 }
 
 :root {
-    --utility-color: rgb(30,144,255);
+    --utility-color: rgb(240, 12, 12);
     --operations-color: rgb(255,143,31);
-    --numbers-color: rgb(33,124,126);
+    --numbers-color: rgb(33, 156, 158);
+    --background-color: rgb(221,221,221);
+    --calc-color: rgb(159, 163, 168);
 }
 
 /* DISPLAY SCREEN */
@@ -22,13 +25,34 @@ body {
 #container {
     display: flex;
     flex-flow: column nowrap;
-    width: 500px;
     align-items: center;   
     gap: 20px; 
-    border: 2px black solid;
+    
+    border: 3px black solid;
     border-radius: 15px;
+    background-color: var(--calc-color);
+
+    width: 500px;
     margin: auto;
     margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 16px 0px 16px 0px;
+}
+
+.displayscreen {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    box-sizing: border-box;
+    
+    width: 460px;
+    height: 100px;
+
+    border: 2px black solid;
+    border-radius: 15px;
+
+    padding: 16px;
 }
 
 .utility-row {
@@ -53,9 +77,20 @@ body {
 button.utility {
     width: 150px;
     height: 75px;
+    background-color: var(--utility-color);
+    font-weight: bold;
 }
 
 button.operator, button.number, button.dot {
     width: 100px;
     height: 100px;
+    font-weight: bold
+}
+
+button.operator, button.dot {
+    background-color: var(--operations-color);
+}
+
+button.number, button.dot {
+    background-color: var(--numbers-color);
 }
