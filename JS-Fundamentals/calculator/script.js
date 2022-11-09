@@ -9,7 +9,6 @@ for(var i=0; i<nodes.length; i++) {
 function updateCurrent(event) {
     node = event.target;
     nodeClass = (node.className).replace('blue', '').replace('orange', '').replace(/\s/g, '')
-    console.log(nodeClass);
     if(nodeClass == 'number') {
         if(current.innerHTML == '0') {
             current.innerHTML = node.innerHTML;
@@ -17,5 +16,19 @@ function updateCurrent(event) {
         else {
             current.innerHTML = current.innerHTML + node.innerHTML;
         }
+    }
+}
+
+var utilities = document.getElementById('utilities').getElementsByTagName('button');
+for(var i=0; i<nodes.length; i++) {
+    utilities[i].addEventListener("click", function(event){reconfigureCalc(event)});
+}
+
+function reconfigureCalc(event) {
+    isClear = false;
+    event.target.id == 'clear' ? isClear = true : isClear = false;
+
+    if(isClear){
+        current.innerHTML = '0';
     }
 }
