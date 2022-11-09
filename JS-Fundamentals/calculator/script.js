@@ -20,15 +20,17 @@ function updateCurrent(event) {
 }
 
 var utilities = document.getElementById('utilities').getElementsByTagName('button');
-for(var i=0; i<nodes.length; i++) {
+for(var i=0; i<utilities.length; i++) {
     utilities[i].addEventListener("click", function(event){reconfigureCalc(event)});
 }
 
 function reconfigureCalc(event) {
     isClear = false;
     event.target.id == 'clear' ? isClear = true : isClear = false;
-
     if(isClear){
         current.innerHTML = '0';
+    } else {
+        console.log(current.innerHTML)
+        current.innerHTML = (current.innerHTML).slice(0, -1);
     }
 }
