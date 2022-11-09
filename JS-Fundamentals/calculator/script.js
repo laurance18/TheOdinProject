@@ -1,12 +1,16 @@
 let ops = document.getElementById('ops');
 let current = document.getElementById('current');
 
+let afterOp = false;
+
 var nodes = document.getElementById('grid').getElementsByTagName('button');
 for(let i=0; i<nodes.length; i++) {
     if((nodes[i].className).includes('number')){
         nodes[i].addEventListener("click", function(event){updateCurrent(event)});   
     } else if((nodes[i].className).includes('operator')) {
         nodes[i].addEventListener("click", function(event){operationUpdate(event)});   
+    } else if((nodes[i].className).includes('equals')) {
+        nodes[i].addEventListener("click", function(event){calculate(event)});                   
     }
 }
 
@@ -18,13 +22,12 @@ for(let i=0; i<utilities.length; i++) {
 function updateCurrent(event) {
     node = event.target;
     nodeClass = (node.className).replace('blue', '').replace('orange', '').replace(/\s/g, '')
-    if(ops.innerHTML == '') {
-        if(current.innerHTML == '0') {
-            current.innerHTML = node.innerHTML;
-        }
-        else {
+    if(current.innerHTML == '0' || afterOp) {
+        current.innerHTML = node.innerHTML;
+        afterOp = false;
+    }
+    else {
             current.innerHTML = current.innerHTML + node.innerHTML;
-        }
     }
 }
 
@@ -40,6 +43,33 @@ function reconfigureCalc(event) {
 }
 
 function operationUpdate(event) {
-    let op = event.target;
-    ops.innerHTML = current.innerHTML + ' ' + op.innerHTML + ' ';
+    afterOp = true;
+    ops.innerHTML = `${current.innerHTML} ${event.target.innerHTML}`;
+}
+
+function calculate(event) {
+    if(ops.innerHTML[ops.innerHTML.length-1] != '='){
+        let num1= Number(ops.innerHTML.split(' ')[0]);
+        let num2 = Number(current.innerHTML);
+        let calc = ops.innerHTML.split(' ')[1];
+
+        switch(calc) {
+            case '÷':
+                ops.innerHTML = `${ops.innerHTML} ${num2} =`;
+                current.innerHTML = parseFloat((num1/num2).toFixed(3), 10);
+                break;
+            case '×':
+                ops.innerHTML = `${ops.innerHTML} ${num2} =`;
+                current.innerHTML = num1 * num2;
+                break;
+            case '-':
+                ops.innerHTML = `${ops.innerHTML} ${num2} =`;
+                current.innerHTML = num1 - num2;
+                break;
+            case '+':
+                ops.innerHTML = `${ops.innerHTML} ${num2} =`;
+                current.innerHTML = num1 + num2;
+                break;
+        }
+    }
 }
