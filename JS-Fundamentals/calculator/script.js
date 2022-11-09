@@ -5,7 +5,7 @@ let afterOp = false;
 
 var nodes = document.getElementById('grid').getElementsByTagName('button');
 for(let i=0; i<nodes.length; i++) {
-    if((nodes[i].className).includes('number')){
+    if((nodes[i].className).includes('number') || (nodes[i].className).includes('dot')){
         nodes[i].addEventListener("click", function(event){updateCurrent(event)});   
     } else if((nodes[i].className).includes('operator')) {
         nodes[i].addEventListener("click", function(event){operationUpdate(event)});   
@@ -23,11 +23,19 @@ function updateCurrent(event) {
     node = event.target;
     nodeClass = (node.className).replace('blue', '').replace('orange', '').replace(/\s/g, '')
     if(current.innerHTML == '0' || afterOp) {
-        current.innerHTML = node.innerHTML;
-        afterOp = false;
+        if(current.innerHTML.includes('.') && node.innerHTML == '.') {
+            console.log('Dot already in place.')
+        } else {
+            current.innerHTML = node.innerHTML;
+            afterOp = false;
+        }
     }
     else {
+        if(current.innerHTML.includes('.') && node.innerHTML == '.') {
+            console.log('Dot already in place.')
+        } else {
             current.innerHTML = current.innerHTML + node.innerHTML;
+        }
     }
 }
 
@@ -60,7 +68,7 @@ function calculate(event) {
                 break;
             case '×':
                 ops.innerHTML = `${ops.innerHTML} ${num2} =`;
-                current.innerHTML = num1 * num2;
+                current.innerHTML = parseFloat((num1*num2).toFixed(3), 10);
                 break;
             case '-':
                 ops.innerHTML = `${ops.innerHTML} ${num2} =`;
