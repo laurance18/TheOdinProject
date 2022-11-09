@@ -51,6 +51,7 @@ body {
 
     border: 2px black solid;
     border-radius: 15px;
+    background-color: var(--background-color);
 
     padding: 16px;
 }
@@ -87,10 +88,10 @@ button.operator, button.number, button.dot {
     font-weight: bold
 }
 
-button.operator, button.dot {
+.orange {
     background-color: var(--operations-color);
 }
 
-button.number, button.dot {
+.blue {
     background-color: var(--numbers-color);
 }
