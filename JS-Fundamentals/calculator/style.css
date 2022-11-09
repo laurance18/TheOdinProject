@@ -62,12 +62,6 @@ body {
     width: 460px;
 }
 
-.utility {
-    text-align: center;
-    min-width: 220px;
-    font-size: 18px;
-}
-
 /* BUTTONS */
 
 .grid {
@@ -76,17 +70,20 @@ body {
     grid-gap: 20px;
 }
 
-button.utility {
-    width: 150px;
-    height: 75px;
-    background-color: var(--utility-color);
-    font-weight: bold;
-}
-
 button.operator, button.number, button.dot {
     width: 100px;
     height: 100px;
-    font-weight: bold
+    font-weight: bold;
+    font-size: 20px;
+}
+
+button.utility {
+    text-align: center;
+    min-width: 220px;
+    font-size: 20px;
+    height: 75px;
+    background-color: var(--utility-color);
+    font-weight: bold;
 }
 
 .orange {
