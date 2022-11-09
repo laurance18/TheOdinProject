@@ -98,3 +98,29 @@ button:active {
 .blue {
     background-color: var(--numbers-color);
 }
+
+/* FOOTER */
+
+.footer {
+    background-color: #1F2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    gap: 8px;
+}
+
+a.footer-author {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+
+a.logo {
+    transform: scale(0.9);
+}
+
+a.logo:hover {
+    transform: scale(1);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
