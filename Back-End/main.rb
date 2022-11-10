@@ -1,9 +1,12 @@
-hash = {
-    :color=>"blue", 
-    :movie=>"Avengers: Endgame",
-    :number=>65
-}
+require 'pry-byebug'
 
-hash[:movie] = 'Avengers'
+def yell_greeting(string)
+  name = string
+  name = name.downcase
 
-print hash
+  # binding.pry
+
+  greeting = "WASSAP, #{name}!"
+end
+
+p yell_greeting("BOB")
