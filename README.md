@@ -10,6 +10,6 @@ Repo for all Odin Project related material.
 - HTML Foundations ✓
 - CSS Foundations ✓
 - Flexbox ✓
-- JavaScript Basics
+- JavaScript Basics ✓
 - The Back End
 - Conclusion
