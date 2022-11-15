@@ -1,4 +1,4 @@
-# OdinProject
+# TheOdinProject
 
 Repo for all Odin Project related material.
 
