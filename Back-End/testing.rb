@@ -1,16 +1,8 @@
 require 'pry-byebug'
 
-hash = {
-  ruby: { initial_release: 'December 25, 1996', is_beautiful?: true },
-  javascript: { initial_release: 'December 4, 1995', is_beautiful?: false }
-}
+array = [1,2,3]
+current = [1,2,3]
 
-beautiful_languages = {}
-hash.each do |lang, value|
-  puts lang.class
-  # if lang[:is_beautiful?]
-  #   beautiful_languages[lang] = value
-  # end
-end
+p current == array
 
 

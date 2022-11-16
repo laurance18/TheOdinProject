@@ -1,18 +1,21 @@
 require 'pry-byebug'
+require 'Benchmark'
 
 def bubble_sort(array = [])
-    return array if array.empty?
-    
+    return nil if array.empty?
     unsorted = true
 
     # Implement recursion
 
-    for i in 0..(array.length-2) do
-        if array[i] > array[i+1]
-            array[i], array[i+1] = array[i+1], array[i]
+    while unsorted do
+        current = array.map(&:clone)
+        for i in 0..(array.length-2) do
+            array[i], array[i+1] = array[i+1], array[i] if array[i] > array[i+1] 
         end
+        unsorted = false if current == array
     end
     array
 end
 
-print bubble_sort([4,3,78,2,0,2])
+print bubble_sort([1,56,76,45,31,3,0])
+
