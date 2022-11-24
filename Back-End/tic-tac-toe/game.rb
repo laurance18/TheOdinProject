@@ -1,6 +1,7 @@
 
+
 # Game mechanics
 
-def game(playerOne, playerTwo)
-  
+def game(playerOne, playerTwo, board)
+  print board
 end
