@@ -3,13 +3,13 @@
 module GridVariables
   # Board setup
 
-  board_indexes = (1..9).to_a
+  BOARD_ARR = (1..9).to_a
   BOARD =  <<-HEREDOC
-      #{board_indexes[0]} | #{board_indexes[1]} | #{board_indexes[2]}
+      #{BOARD_ARR[0]} | #{BOARD_ARR[1]} | #{BOARD_ARR[2]}
     ----+---+----
-      #{board_indexes[3]} | #{board_indexes[4]} | #{board_indexes[5]}
+      #{BOARD_ARR[3]} | #{BOARD_ARR[4]} | #{BOARD_ARR[5]}
     ----+---+----
-      #{board_indexes[6]} | #{board_indexes[7]} | #{board_indexes[8]}
+      #{BOARD_ARR[6]} | #{BOARD_ARR[7]} | #{BOARD_ARR[8]}
   HEREDOC
 
   WINNING_COMBOS = [
