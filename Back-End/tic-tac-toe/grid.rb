@@ -4,7 +4,7 @@
 class Grid
   attr_accessor :indexes
   attr_accessor :board
-  attr_reader :COMBOS
+  attr_reader :WINNING_COMBOS
 
   def initialize()
     @indexes = (1..9).to_a
@@ -15,7 +15,7 @@ class Grid
     ----+---+----
       7 | 8 | 9
     HEREDOC
-    @COMBOS = [
+    @WINNING_COMBOS = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
         [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
       ].freeze # Winning combinations
