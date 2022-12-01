@@ -1,0 +1,3 @@
+# Game class
+
+class Game
