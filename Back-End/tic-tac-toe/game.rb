@@ -12,8 +12,12 @@ def play_game(playerOne, playerTwo)
     turn(playerOne, grid) if count % 2 == 0
     turn(playerTwo, grid) if count % 2 != 0
     count += 1
-    game_ongoing = checkWin(grid)
+    game_ongoing, winner_sym = checkWin(grid)
   end
+  winner = playerOne if winner_sym == playerOne.symbol
+  winner = playerTwo if winner_sym == playerTwo.symbol
+  
+  print("\n#{winner.name} has won the game!")
 end
 
 def turn(player, grid)
@@ -31,7 +35,7 @@ def checkWin(grid)
     combo.each do |index|
       current.push(grid.indexes[index])
     end
-    return false if current.uniq.size == 1
+    return false, current[0] if current.uniq.size == 1
   end
   return true
 end
