@@ -1,22 +1,38 @@
 # Game class
 
 class Game
+  
   def initialize()
     @colors = ['blue', 'green', 'red', 'yellow', 'orange', 'purple', 'pink']
-    @picked_color = ""
+    @picked_seq = {},
+    @current_guesses = {}
     @current_feedback = []
   end
 
   def play()
-    print("Welcome to the game Mastermind! A random color has been picked, you have 8 turns to guess the color. Feedback will be provided accordingly.")
-    @picked_color = colors[rand(0..colors.length-1)] # Computer picks random color
+    puts "Welcome to the game Mastermind! A random sequence has been picked, you have 8 turns to guess the color. Feedback will be provided accordingly."
+    for i in (0..3)
+      @picked_seq[i] = @colors[rand(0..@colors.length-1)]
+    end
+    turn()
   end
 
   def turn()
-    
-  end
+    print "Please enter your guess for color: "
+    color_guess = gets.chomp.downcase
+    print "Please enter your guess for position (Entering a previously guessed position will overwrite previous guess!): "
+    pos_guess = gets.chomp.to_i-1
+    @current_guesses[pos_guess] = color_guess
+
+    feedback()
+  end 
 
   def feedback()
-
+    @current_guesses.each do |key, value| 
+      @current_feedback.push("black") if @picked_seq[key] == value 
+    end
   end
 end
+
+test = Game.new()
+test.play()
