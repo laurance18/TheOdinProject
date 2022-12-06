@@ -4,9 +4,9 @@ class Game
   
   def initialize()
     @colors = ['blue', 'green', 'red', 'yellow', 'orange', 'purple', 'pink']
-    @picked_seq = {},
-    @current_guesses = {}
-    @current_feedback = []
+    @picked_seq = Hash.new()
+    @current_guesses = Hash.new()
+    @current_feedback = Hash.new()
   end
 
   def play()
@@ -14,6 +14,7 @@ class Game
     for i in (0..3)
       @picked_seq[i] = @colors[rand(0..@colors.length-1)]
     end
+    puts @picked_seq.values.join(" ")
     turn()
   end
 
@@ -29,9 +30,21 @@ class Game
 
   def feedback()
     @current_guesses.each do |key, value| 
-      @current_feedback.push("black") if @picked_seq[key] == value 
+      if @picked_seq[key] == value 
+        @current_feedback[value] = "Black" 
+      elsif @picked_seq.values.include?(value)
+        @current_feedback[value] = "White"
+      end 
+    end
+    print "Current feedback: #{@current_feedback.values.join(" / ")}"
+  end
+
+  def checkWin()
+    for k in (0..3)
+      
     end
   end
+  
 end
 
 test = Game.new()
