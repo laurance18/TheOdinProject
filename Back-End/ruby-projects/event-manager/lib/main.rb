@@ -5,6 +5,8 @@ require 'google/apis/civicinfo_v2'
 civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
 civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
 
+template_letter = File.read('form_letter.html')
+
 def clean_zipcode(zipcode)
   zipcode.rjust(5, '0')[0..4]
 end
@@ -38,6 +40,9 @@ content.each do |row|
   name = row[:first_name].to_s
   zipcode = clean_zipcode(row[:zipcode].to_s)
   legislators = legislators_by_zipcode(zipcode)
+
+  personal_letter.gsub!('FIRST_NAME', name)
+  personal_letter.gsub!('LEGISLATORS', legislators)
 
   puts "#{name} #{zipcode} #{legislators}"
 end
