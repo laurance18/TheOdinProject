@@ -1,6 +1,8 @@
 require 'pry-byebug'
+require 'csv'
 
 puts 'Event Manager initialized!'
 
-contents = File.read("event_attendees.csv")
-puts contents
+contents = CSV.read(File.expand_path("../event_attendees.csv", __dir__))
+print contents
+
