@@ -1,11 +1,13 @@
 require 'pry-byebug'
 require 'csv'
 require 'google/apis/civicinfo_v2'
+require 'erb'
 
 civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
 civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
 
-template_letter = File.read('form_letter.html')
+personal_letter = File.read(File.expand_path("../form_letter.erb", __dir__),)
+erb_template = ERB.new personal_letter
 
 def clean_zipcode(zipcode)
   zipcode.rjust(5, '0')[0..4]
@@ -20,10 +22,7 @@ def legislators_by_zipcode(zip)
       address: zip,
       levels: 'country',
       roles: ['legislatorUpperBody', 'legislatorLowerBody']
-    )
-    legislators = legislators.officials
-    legislator_names = legislators.map(&:name)
-    legislator_names.join(", ")
+    ).officials
   rescue
     'You can find your representatives by visiting www.commoncause.org/take-action/find-elected-officials'
   end
@@ -44,6 +43,7 @@ content.each do |row|
   personal_letter.gsub!('FIRST_NAME', name)
   personal_letter.gsub!('LEGISLATORS', legislators)
 
-  puts "#{name} #{zipcode} #{legislators}"
+  form_letter = erb_template.result(binding)
+  puts form_letter
 end
 
