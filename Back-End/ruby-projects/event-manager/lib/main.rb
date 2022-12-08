@@ -6,11 +6,11 @@ require 'erb'
 civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
 civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
 
-personal_letter = File.read(File.expand_path("../form_letter.erb", __dir__),)
+personal_letter = File.read(File.expand_path("../form_letter.erb", __dir__))
 erb_template = ERB.new personal_letter
 
 def clean_zipcode(zipcode)
-  zipcode.rjust(5, '0')[0..4]
+  zipcode.nil? ? zipcode = "00000" : zipcode.rjust(5, '0')[0..4]
 end
 
 def legislators_by_zipcode(zip)
@@ -29,21 +29,27 @@ def legislators_by_zipcode(zip)
 end
 
 print "Event Manager initialized!\n\n"
-content = CSV.open(
+contents = CSV.open(
   File.expand_path("../event_attendees.csv", __dir__),
   headers: true,
   header_converters: :symbol
 )
 
-content.each do |row|
-  name = row[:first_name].to_s
-  zipcode = clean_zipcode(row[:zipcode].to_s)
+contents.each do |row|
+  id = row[0]
+  name = row[:first_name]
+
+  zipcode = clean_zipcode(row[:zipcode])
   legislators = legislators_by_zipcode(zipcode)
-
-  personal_letter.gsub!('FIRST_NAME', name)
-  personal_letter.gsub!('LEGISLATORS', legislators)
-
   form_letter = erb_template.result(binding)
-  puts form_letter
+
+  Dir.mkdir(File.expand_path("../output", __dir__)) unless Dir.exist?(File.expand_path("../output", __dir__))
+
+  filename = "#{File.expand_path("../output", __dir__)}/thanks_#{id}.html"
+
+  File.open(filename, 'w') do |file|
+    file.puts form_letter
+  end
+
 end
 
