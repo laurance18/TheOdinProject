@@ -28,6 +28,16 @@ def legislators_by_zipcode(zip)
   end
 end
 
+def save_thanks_letter(id, form_letter)
+  Dir.mkdir(File.expand_path("../output", __dir__)) unless Dir.exist?(File.expand_path("../output", __dir__))
+
+  filename = "#{File.expand_path("../output", __dir__)}/thanks_#{id}.html"
+
+  File.open(filename, 'w') do |file|
+    file.puts form_letter
+  end
+end
+
 print "Event Manager initialized!\n\n"
 contents = CSV.open(
   File.expand_path("../event_attendees.csv", __dir__),
@@ -43,13 +53,5 @@ contents.each do |row|
   legislators = legislators_by_zipcode(zipcode)
   form_letter = erb_template.result(binding)
 
-  Dir.mkdir(File.expand_path("../output", __dir__)) unless Dir.exist?(File.expand_path("../output", __dir__))
-
-  filename = "#{File.expand_path("../output", __dir__)}/thanks_#{id}.html"
-
-  File.open(filename, 'w') do |file|
-    file.puts form_letter
-  end
-
+  save_thanks_letter(id, form_letter)
 end
-
