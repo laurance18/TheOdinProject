@@ -14,6 +14,7 @@ class Game
     for i in 0...@rand_word.length 
       i != @rand_word.length-1 ? @player_guess += "_ " : @player_guess += "_"
     end
+    print "#{@rand_word}\n"
   end
 
   def pick_word()
@@ -23,14 +24,34 @@ class Game
   end
 
   def turn()
-    print "Current status: #{@player_guess}\n#{@rand_word}\n"
+    print "\nCurrent status: #{@player_guess}\n"
+    print "Wrong guesses: #{@wrong_letters.join(" -")}\n" unless @wrong_letters.empty?
     print "Please enter your guess: "
     
     letter = gets.chomp
+    correct_indices = @rand_word.split("").each_index.select { |index| @rand_word[index] == letter } 
+
+    unless correct_indices.empty?
+      word_arr = @player_guess.split("")
+      word_arr.delete(" ")
+
+      correct_indices.each do |index|
+        word_arr[index] = letter
+      end
+      @player_guess = word_arr.join(" ")
+    else
+      if @wrong_letters.include?(letter) 
+        print"You can't type a previously guessed letter which was incorrect\n"
+      else
+        @wrong_letters.push(letter)
+      end
+    end
+    
+    turn()
   end
 
   def play()
-    print "\nA random word between the length of 5 and 12 has been selected. Feedback will be provided according to your guesses.\n\n"
+    print "\nA random word between the length of 5 and 12 has been selected. Feedback will be provided according to your guesses.\n"
     turn()
   end
 
