@@ -41,7 +41,7 @@ class Game
       @correct_letters.push(letter)
       @left_guesses -= 1
     else
-      if @wrong_letters.include?(letter) 
+      if @wrong_letters.include?(letter) && @correct_letters.include?(letter)
         print"You can't type a previously guessed letter.\n"
       else
         @wrong_letters.push(letter)
