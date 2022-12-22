@@ -45,7 +45,19 @@ class LinkedList
     until current.link == nil # Iterate until current.link == nil (no next node) and return total count
       current = current.link
       total += 1
-    total
+    return total
+  end
+
+  def head
+    return @head
+  end
+
+  def tail
+    current = @head
+    until current.link == nil
+      current = current.link
+    end
+    return current
   end
 
 end
