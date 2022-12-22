@@ -81,4 +81,28 @@ class LinkedList
     current.link = nil
   end
 
+  def contains?(value)
+    current = @head
+    until current == nil
+      return true if current.value == value
+      current = current.link
+    end
+    return false
+  end
+
+  def find(value)
+
+  end
+
+  def to_s
+    current = @head
+    string_rep = String.new()
+    until current == nil
+      string_rep += "( #{current.value} ) -> "
+      current = current.link
+    end
+    string_rep += "nil"
+    return string_rep
+  end
+
 end
