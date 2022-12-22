@@ -1,4 +1,4 @@
-# Node Class
+# Node Class with a value and link
 class Node
 
   def init(value, link = nil)
@@ -9,7 +9,7 @@ class Node
 end
 
 
-# LinkedList Class
+# LinkedList Class with a head
 class LinkedList
 
   def init
@@ -37,6 +37,15 @@ class LinkedList
     else
       @head = new_node # If no head is present, head = new_node
     end
+  end
+
+  def size
+    current = @head
+    total = 1
+    until current.link == nil # Iterate until current.link == nil (no next node) and return total count
+      current = current.link
+      total += 1
+    total
   end
 
 end
