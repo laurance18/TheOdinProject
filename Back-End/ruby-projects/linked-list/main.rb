@@ -74,7 +74,11 @@ class LinkedList
   end
 
   def pop
-    
+    current = @head
+    until current.link == tail
+      current = current.link
+    end
+    current.link = nil
   end
 
 end
