@@ -60,4 +60,14 @@ class LinkedList
     return current
   end
 
+  def at(index)
+    count = 0
+    current = @head
+    until count == index
+      current = current.link
+      count += 1
+    end
+    return current
+  end
+
 end
