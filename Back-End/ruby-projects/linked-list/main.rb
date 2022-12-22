@@ -1,7 +1,8 @@
 # Node Class with a value and link
 class Node
 
-  def init(value, link = nil)
+  attr_accessor :link, :value
+  def initialize(value, link = nil)
     @value = value
     @link = link
   end
@@ -12,7 +13,8 @@ end
 # LinkedList Class with a head
 class LinkedList
 
-  def init
+  attr_accessor :head
+  def initialize
     @head = nil
   end
 
@@ -45,6 +47,7 @@ class LinkedList
     until current.link == nil # Iterate until current.link == nil (no next node) and return total count
       current = current.link
       total += 1
+    end
     return total
   end
 
@@ -68,6 +71,10 @@ class LinkedList
       count += 1
     end
     return current
+  end
+
+  def pop
+    
   end
 
 end
