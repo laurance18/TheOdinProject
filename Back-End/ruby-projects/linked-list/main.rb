@@ -91,7 +91,14 @@ class LinkedList
   end
 
   def find(value)
-
+    current = @head
+    count = 0
+    until current == nil
+      return count if current.value == value
+      current = current.link
+      count += 1
+    end
+    return false
   end
 
   def to_s
