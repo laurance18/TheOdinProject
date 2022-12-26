@@ -93,12 +93,14 @@ class LinkedList
   def find(value)
     current = @head
     count = 0
+    index_values = Array.new()
     until current == nil
-      return count if current.value == value
+      index_values.push(count) if current.value == value
       current = current.link
       count += 1
     end
-    return false
+    return index_values unless index_values.empty?
+    return nil
   end
 
   def to_s
