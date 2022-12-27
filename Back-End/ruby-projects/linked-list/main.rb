@@ -116,14 +116,14 @@ class LinkedList
 
   def insert_at(value, index)
     prev_node_index, next_node_index = -1, -1
-    head?, tail? = false, false
+    isHead, isTail = false, false
     
     # Account for index referencing the head or tail
-    head? = true if index == 0
-    tail? = true if index == size - 1
-    if head?
+    isHead = true if index == 0
+    isTail = true if index == size - 1
+    if isHead
       next_node_index = 1
-    elsif tail?
+    elsif isTail
       prev_node_index = size - 2
     else
       prev_node_index = index - 1
@@ -131,9 +131,13 @@ class LinkedList
     end 
 
     new_node = Node.new(value)
-    next_node = at(next_node_index) unless next_node_index == -1
-    prev_node = at(prev_node_index) unless prev_node_index == -1
-
+    unless next_node_index == -1
+      next_node = at(next_node_index)
+      new_node.link = next_node
+    end
+    unless prev_node_index == -1
+      prev_node = at(prev_node_index)
+      prev_node.link = new_node
+    end
   end
-
 end
