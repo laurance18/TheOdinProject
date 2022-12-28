@@ -121,12 +121,12 @@ class LinkedList
   def insert_at(value, index)
     if index < 0
       print "Index must be a non-negative integer"
-      return -1
+      return
     end
     
     if index == 0
       @head = Node.new(value, @head)
-      return 1
+      return
     end
     
     current_node = @head
@@ -142,5 +142,35 @@ class LinkedList
       new_node = Node.new(value, current_node.link)
       current_node.link = new_node
     end
+  end
+
+  def remove_at(index)
+    if index < 0
+      print "Index must be a non-negative integer"
+      return
+    end
+
+    if index == 0
+      unless @head == nil
+        @head = @head.link
+      end
+      return
+    end
+
+    current_node = @head
+    current_index = 0
+    while current_node != nil && current_index < index
+      current_node = current_node.link
+      current_index += 1
+    end
+
+    if current_node == nil
+      return
+    elsif current_node.link == nil
+      pop()
+    else
+      current_node.link = current_node.link.link
+    end
+
   end
 end
