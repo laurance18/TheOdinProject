@@ -67,8 +67,12 @@ class LinkedList
     count = 0
     current = @head
     until count == index
-      current = current.link
-      count += 1
+      if current.link != nil
+        current = current.link
+        count += 1
+      else
+        return -1
+      end
     end
     return current
   end
@@ -115,29 +119,28 @@ class LinkedList
   end
 
   def insert_at(value, index)
-    prev_node_index, next_node_index = -1, -1
-    isHead, isTail = false, false
-    
-    # Account for index referencing the head or tail
-    isHead = true if index == 0
-    isTail = true if index == size - 1
-    if isHead
-      next_node_index = 1
-    elsif isTail
-      prev_node_index = size - 2
-    else
-      prev_node_index = index - 1
-      next_node_index = index + 1
-    end 
-
-    new_node = Node.new(value)
-    unless next_node_index == -1
-      next_node = at(next_node_index)
-      new_node.link = next_node
+    if index < 0
+      print "Index must be a non-negative integer"
+      return -1
     end
-    unless prev_node_index == -1
-      prev_node = at(prev_node_index)
-      prev_node.link = new_node
+    
+    if index == 0
+      @head = Node.new(value, @head)
+      return 1
+    end
+    
+    current_node = @head
+    current_index = 0
+    while current_node != nil && current_index < index
+      current_node = current_node.link
+      current_index += 1
+    end
+
+    if current_node == nil
+      append(value)
+    else
+      new_node = Node.new(value, current_node.link)
+      current_node.link = new_node
     end
   end
 end
