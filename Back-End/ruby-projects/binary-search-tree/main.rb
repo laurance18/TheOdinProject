@@ -33,4 +33,18 @@ class Tree
     pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
   end
 
+  def insert(key, root = @root)
+    if root == nil
+      return Node.new(key)
+    else
+      if root.value == key
+        return root
+      elsif root.value < key
+        root.right = insert(key, root.right)
+      else
+        root.left = insert(key, root.left)
+      end
+    end
+    return root
+  end
 end
