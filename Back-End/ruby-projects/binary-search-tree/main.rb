@@ -84,4 +84,18 @@ class Tree
     current
   end
   
+  def find(value)
+    return nil if @root.nil?
+
+    current = @root
+    until current.value == value
+      if value > current.value
+        current = current.right
+      elsif value < current.value
+        current = current.left 
+      end
+    end
+    return current
+  end
+
 end
