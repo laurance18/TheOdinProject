@@ -12,6 +12,7 @@ end
 # Tree Class
 class Tree
   
+  attr_accessor :root
   def initialize(array = [])
     @root = build_tree(array)
   end
@@ -47,4 +48,40 @@ class Tree
     end
     return root
   end
+
+  def delete(value, root = @root)
+    return nil if root.nil?
+  
+    if value < root.value
+      root.left = delete(value, root.left)
+    elsif value > root.value
+      root.right = delete(value, root.right)
+    else
+      if root.left.nil?
+        temp = root.right
+        root = nil
+        return temp
+      elsif root.right.nil?
+        temp = root.left
+        root = nil
+        return temp
+      end
+  
+      # node with two children: Get the inorder successor (smallest
+      # in the right subtree)
+      temp = min_value_node(root.right)
+      root.value = temp.value
+      root.right = delete(temp.value, root.right)
+    end
+    root
+  end
+  
+  def min_value_node(node)
+    current = node
+    while !current.left.nil?
+      current = current.left
+    end
+    current
+  end
+  
 end
