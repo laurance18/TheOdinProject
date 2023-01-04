@@ -98,4 +98,13 @@ class Tree
     return current
   end
 
+  def level_order(node = @root, queue = [])
+    print "#{node.value} "
+    queue << node.left unless node.left.nil?
+    queue << node.right unless node.right.nil?
+    return if queue.empty?
+
+    level_order(queue.shift, queue)
+  end
+
 end
